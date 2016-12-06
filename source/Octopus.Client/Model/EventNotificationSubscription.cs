@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Octopus.Client.Serialization;
+using System;
 using System.Collections.Generic;
 
 namespace Octopus.Client.Model
@@ -17,6 +19,7 @@ namespace Octopus.Client.Model
 
         public ReferenceCollection EmailTeams { get; set; }
 
+        [JsonConverter(typeof(TotalHoursTimeSpanConverter))]
         public TimeSpan EmailFrequencyPeriod { get; set; }
 
         public DateTimeOffset? EmailDigestLastProcessed { get; set; }

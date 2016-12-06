@@ -1,4 +1,6 @@
 ﻿
+using Newtonsoft.Json;
+using Octopus.Client.Serialization;
 using System;
 
 namespace Octopus.Client.Model
@@ -12,6 +14,8 @@ namespace Octopus.Client.Model
     public class MachineCleanupPolicy
     {
         public DeleteMachinesBehavior DeleteMachinesBehavior { get; set; }
+
+        [JsonConverter(typeof(TotalHoursTimeSpanConverter))]
         public TimeSpan DeleteMachinesElapsedTimeSpan { get; set; }
     }
 }

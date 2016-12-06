@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Octopus.Client.Serialization;
 
 namespace Octopus.Client.Model
 {
@@ -7,6 +8,7 @@ namespace Octopus.Client.Model
     {
         public MachineScriptPolicy TentacleEndpointHealthCheckPolicy { get; set; }
         public MachineScriptPolicy SshEndpointHealthCheckPolicy { get; set; }
+        [JsonConverter(typeof(TotalHoursTimeSpanConverter))]
         public TimeSpan HealthCheckInterval { get; set; }
 
         public MachineHealthCheckPolicy()
