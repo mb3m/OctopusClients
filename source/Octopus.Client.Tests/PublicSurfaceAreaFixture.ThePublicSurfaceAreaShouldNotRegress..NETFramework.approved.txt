@@ -4602,6 +4602,13 @@ Octopus.Client.Serialization
   {
     static JsonSerializerSettings GetDefaultSerializerSettings()
   }
+  class TotalHoursTimeSpanConverter
+  {
+    .ctor()
+    Boolean CanConvert(Type)
+    Object ReadJson(JsonReader, Type, Object, JsonSerializer)
+    void WriteJson(JsonWriter, Object, JsonSerializer)
+  }
   class TriggerActionConverter
   {
     .ctor()
